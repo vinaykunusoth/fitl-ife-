@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Plan</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        select, button { padding: 8px; margin: 10px 0; }
+        .diet-plan { margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px; display: none; }
+    </style>
+</head>
+<body>
+    <h1>Diet Plan</h1>
+    <label for="disease-select">Select a Disease:</label>
+    <select id="disease-select">
+        <option value="">--Choose a Disease--</option>
+        <option value="Arthritis">Arthritis</option>
+        <option value="Gastritis">Gastritis</option>
+        <option value="Acid Reflux">Acid Reflux</option>
+        <option value="Vitamin Deficiency">Vitamin Deficiency</option>
+        <option value="Muscular Dystrophy">Muscular Dystrophy</option>
+    </select>
+    <button onclick="showDietPlan()">Show Diet Plan</button>
+
+    <div id="diet-plan" class="diet-plan">
+        <h2 id="disease-title"></h2>
+        <p><strong>Diet:</strong> <span id="diet-details"></span></p>
+        <p><strong>Water Intake:</strong> <span id="water-intake"></span></p>
+    </div>
+
+    <script>
+        const dietData = {
+            "Arthritis": {
+                diet: "Anti-inflammatory foods (e.g., leafy greens, berries, fatty fish)",
+                water: "2.5 - 3 liters/day"
+            },
+            "Gastritis": {
+                diet: "Easily digestible foods (e.g., bananas, rice, boiled vegetables)",
+                water: "2 - 2.5 liters/day"
+            },
+            "Acid Reflux": {
+                diet: "Low-acid foods (e.g., oatmeal, melons, green vegetables)",
+                water: "2.5 - 3 liters/day"
+            },
+            "Vitamin Deficiency": {
+                diet: "Vitamin-rich foods (e.g., citrus fruits, leafy greens, dairy)",
+                water: "2 - 2.5 liters/day"
+            },
+            "Muscular Dystrophy": {
+                diet: "High-protein diet (e.g., eggs, chicken, legumes)",
+                water: "2.5 - 3 liters/day"
+            }
+        };
+
+        function showDietPlan() {
+            const select = document.getElementById('disease-select');
+            const disease = select.value;
+
+            const dietPlanDiv = document.getElementById('diet-plan');
+            const diseaseTitle = document.getElementById('disease-title');
+            const dietDetails = document.getElementById('diet-details');
+            const waterIntake = document.getElementById('water-intake');
+
+            if (disease && dietData[disease]) {
+                diseaseTitle.textContent = disease;
+                dietDetails.textContent = dietData[disease].diet;
+                waterIntake.textContent = dietData[disease].water;
+                dietPlanDiv.style.display = 'block';
+            } else {
+                dietPlanDiv.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

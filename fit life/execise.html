@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Exercise Recommendations</title>
+    <script>
+        let diseaseExercises = {
+            "Joint Pain": "Low-impact exercises (e.g., swimming, cycling, yoga).",
+            "Stomach Pain": "Gentle yoga poses (e.g., child’s pose), deep breathing, light stretching.",
+            "Acidity": "Light walking, yoga (e.g., cat-cow stretch), and adequate hydration.",
+            "Ulcers on Tongue": "No specific exercise; focus on hydration and soft foods.",
+            "Muscle Wasting": "Resistance training, weight lifting, and protein-rich diet."
+        };
+        
+        function showExercises(disease) {
+            let description = diseaseExercises[disease] || "No exercises available.";
+            document.getElementById("exerciseDetail").innerHTML = `<h3>${disease}</h3><p>${description}</p><button onclick="startTimer(this, '${disease}')">Start 1-Min Timer ⏱️</button>`;
+        }
+        
+        function startTimer(button, disease) {
+            let seconds = 60;
+            button.disabled = true;
+            const interval = setInterval(() => {
+                if (seconds > 0) {
+                    button.textContent = `${seconds} seconds remaining`;
+                    seconds--;
+                } else {
+                    clearInterval(interval);
+                    button.textContent = `Completed ${disease} exercises! 🎉`;
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <h1>Disease Exercise Recommendations 🏋️‍♂️</h1>
+    <h2>Select a Disease:</h2>
+    <ul>
+        <li><a href="#" onclick="showExercises('Joint Pain')">Joint Pain</a></li>
+        <li><a href="#" onclick="showExercises('Stomach Pain')">Stomach Pain</a></li>
+        <li><a href="#" onclick="showExercises('Acidity')">Acidity</a></li>
+        <li><a href="#" onclick="showExercises('Ulcers on Tongue')">Ulcers on Tongue</a></li>
+        <li><a href="#" onclick="showExercises('Muscle Wasting')">Muscle Wasting</a></li>
+    </ul>
+    <div id="exerciseDetail"></div>
+</body>
+</html>

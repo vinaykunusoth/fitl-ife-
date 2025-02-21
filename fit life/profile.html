@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - FitLife</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 50px auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid #0077cc;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .logout-btn {
+            margin-top: 20px;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .logout-btn:hover {
+            background-color: #005fa3;
+        }
+    </style>
+    <script>
+        function handleLogout() {
+            alert("You have been logged out!");
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+</head>
+<body>
+
+    <div class="profile-container">
+        <img src="https://via.placeholder.com/150" alt="Profile Image" class="profile-image">
+        <h2>Harsha</h2>
+        <p><strong>Email:</strong> thaduriharsha36@gmail.com</p>
+        <p><strong>Age:</strong> 20</p>
+        <p><strong>Sex:</strong> Male</p>
+
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    </div>
+
+</body>
+</html>
